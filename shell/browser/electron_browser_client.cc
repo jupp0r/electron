@@ -1789,4 +1789,10 @@ void ElectronBrowserClient::BindBadgeServiceReceiverFromServiceWorker(
       service_worker_process_host, service_worker_scope, std::move(receiver));
 }
 
+content::HidDelegate* ElectronBrowserClient::GetHidDelegate() {
+  if (!hid_delegate_)
+    hid_delegate_ = std::make_unique<ElectronHidDelegate>();
+  return hid_delegate_.get();
+}
+
 }  // namespace electron
