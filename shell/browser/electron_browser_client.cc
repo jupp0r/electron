@@ -1797,6 +1797,11 @@ void ElectronBrowserClient::BindBadgeServiceReceiverFromServiceWorker(
     mojo::PendingReceiver<blink::mojom::BadgeService> receiver) {
   badging::BadgeManager::BindServiceWorkerReceiver(
       service_worker_process_host, service_worker_scope, std::move(receiver));
+
+content::HidDelegate* ElectronBrowserClient::GetHidDelegate() {
+  if (!hid_delegate_)
+    hid_delegate_ = std::make_unique<ElectronHidDelegate>();
+  return hid_delegate_.get();
 }
 
 }  // namespace electron
