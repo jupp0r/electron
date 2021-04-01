@@ -2,6 +2,7 @@
 
 #include "base/callback.h"
 #include "content/public/browser/web_contents.h"
+#include "services/device/public/mojom/hid.mojom-blink.h"
 #include "shell/browser/hid/hid_chooser_context.h"
 #include "shell/browser/hid/hid_chooser_context_factory.h"
 
